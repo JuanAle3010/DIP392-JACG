@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ routine.name }} - GymTracker{% endblock %}
+{% block content %}
+  <h1 class="my-4">{{ routine.name }} ({{ routine.date }})</h1>
+  <ul class="list-group">
+    {% for exercise in exercise_details %}
+      <li class="list-group-item">
+        {{ exercise.name }} - {{ exercise.sets }} sets x {{ exercise.reps }} reps @ {{ exercise.weight }} kg
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('edit_routine', routine_id=routine.id) }}" class="btn btn-primary mt-3">Edit Routine</a>
+  <a href="{{ url_for('view_routines') }}" class="btn btn-secondary mt-3">Back to Routines</a>
+{% endblock %}
+
+
+
+
+

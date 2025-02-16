@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}View Exercises - GymTracker{% endblock %}
+{% block content %}
+  <h1 class="my-4">Exercises</h1>
+  <ul class="list-group">
+    {% for exercise in exercises %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('exercise', exercise_id=exercise.id) }}">{{ exercise.name }}</a>
+        <form action="{{ url_for('delete_exercise', exercise_id=exercise.id) }}" method="post" class="ml-3">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+{% endblock %}
+
+
+
+
+

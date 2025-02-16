@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Add Routine - GymTracker{% endblock %}
+{% block content %}
+  <h1 class="my-4">Add New Routine</h1>
+  <form action="{{ url_for('add_routine') }}" method="post">
+    <div class="form-group">
+      <input type="text" name="name" class="form-control" placeholder="Routine Name" required>
+    </div>
+    <div class="form-group">
+      <input type="date" name="date" class="form-control" required>
+    </div>
+    <h4>Exercises</h4>
+    {% for exercise in exercises %}
+      <div class="form-group">
+        <input type="checkbox" name="exercise_id" value="{{ exercise.id }}"> {{ exercise.name }}
+        <input type="number" name="sets" class="form-control" placeholder="Sets" required>
+        <input type="number" name="reps" class="form-control" placeholder="Reps" required>
+        <input type="number" step="0.1" name="weight" class="form-control" placeholder="Weight (kg)" required>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Add Routine</button>
+  </form>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+{% endblock %}
+

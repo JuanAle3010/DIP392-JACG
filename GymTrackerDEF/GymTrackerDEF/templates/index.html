@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Home - GymTracker{% endblock %}
+{% block content %}
+  <h1 class="my-4 text-center">Welcome to GymTracker</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <a href="{{ url_for('add_exercise') }}" class="btn btn-primary btn-block">Add New Exercise</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <a href="{{ url_for('view_exercises') }}" class="btn btn-primary btn-block">View Exercises</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <a href="{{ url_for('add_routine') }}" class="btn btn-primary btn-block">Add New Routine</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <a href="{{ url_for('view_routines') }}" class="btn btn-primary btn-block">View Routines</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
